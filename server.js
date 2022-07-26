@@ -46,12 +46,12 @@ app.post('/api/add-movie', (req, res) => {
 app.patch('/api/update-review', (req, res) => {
     console.log(`${req.method} request received for /api/update-review`);
 
-    db.query(`UPDATE reviews SET review = "${req.body}" WHERE movie_id = 3`, (err, results) => {
+    db.query(`UPDATE reviews SET review = "${req.body.review}" WHERE movie_id = ${req.body.movie_id}`, (err, results) => {
         if (err) {console.log(err);}
 
-        console.log(results);
-    })
-})
+        res.json(results);
+    });
+});
 
 // Default route
 app.use((req, res) => {
