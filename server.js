@@ -32,7 +32,7 @@ app.get('/api/movies', (req, res) => {
 });
 
 // Adding a movie to the db
-app.post('/api/add-movies', (req, res) => {
+app.post('/api/add-movie', (req, res) => {
     console.log(`${req.method} request received for /api/add-movie`);
 
     db.query(`INSERT INTO movies (movie_name) VALUES ("${req.body}")`, (err, results) => {
@@ -41,6 +41,17 @@ app.post('/api/add-movies', (req, res) => {
         console.log(results);
     });
 });
+
+// Updating a review
+app.patch('/api/update-review', (req, res) => {
+    console.log(`${req.method} request received for /api/update-review`);
+
+    db.query(`UPDATE reviews SET review = "${req.body}" WHERE movie_id = 3`, (err, results) => {
+        if (err) {console.log(err);}
+
+        console.log(results);
+    })
+})
 
 // Default route
 app.use((req, res) => {
