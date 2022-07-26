@@ -25,9 +25,5 @@ VALUES ("Finding Nemo"),
        ("Dispicable Me: 2"),
        ("Minions: Rise of Gru");
 
-INSERT INTO reviews (review)
-VALUES ("2"),
-       ("4"),
-       ("4"),
-       ("4"),
-       ("5");
+INSERT INTO reviews (movie_id, review)
+VALUES (8,"5");
