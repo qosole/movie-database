@@ -31,6 +31,17 @@ app.get('/api/movies', (req, res) => {
     });
 });
 
+// Rendering a list of all reviews
+app.get('/api/reviews', (req, res) => {
+    console.log(`${req.method} request received for /api/reviews`);
+
+    db.query('SELECT * FROM reviews', (err, results) => {
+        if (err) {console.log(err);}
+
+        res.json(results);
+    })
+})
+
 // Adding a movie to the db
 app.post('/api/add-movie', (req, res) => {
     console.log(`${req.method} request received for /api/add-movie`);
