@@ -14,7 +14,7 @@ const db = mysql.createConnection(
         host: 'localhost',
         user: 'root',
         password: 'password',
-        database: ''
+        database: 'movie_db'
     },
     console.log('Connected to database!')
 );
@@ -28,5 +28,8 @@ app.get('/api/movies', (req, res) => {
         if (err) {console.log(err);}
 
         res.json(results);
-    })
-})
+    });
+});
+
+// Adding a movie to the db
+app.post('/api/movies', (req, res))
