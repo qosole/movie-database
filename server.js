@@ -53,6 +53,17 @@ app.patch('/api/update-review', (req, res) => {
     });
 });
 
+//Adding Delete route
+app.delete("/api/movie/:id", (req, res) => {
+    console.log(`${req.method} request received for /api/movie/:id`);
+
+    db.query(`DELETE FROM movies WHERE movies.id = ${req.params.id}`, (err, results)=> {
+        if (err) {console.log(err);}
+
+        console.log("Number of records deleted: " + result.affectedRows);
+    });
+});
+
 // Default route
 app.use((req, res) => {
     res.status(404).end();

@@ -3,12 +3,14 @@ CREATE DATABASE movie_db;
 
 USE movie_db;
 
+DROP TABLE IF EXISTS movies;
 CREATE TABLE movies (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   movie_name VARCHAR(100) NOT NULL
   
 );
 
+DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   movie_id INT,
@@ -26,4 +28,4 @@ VALUES ("Finding Nemo"),
        ("Minions: Rise of Gru");
 
 INSERT INTO reviews (movie_id, review)
-VALUES (8,"5");
+VALUES (3,"5");
