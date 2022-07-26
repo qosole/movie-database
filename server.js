@@ -24,5 +24,9 @@ const db = mysql.createConnection(
 app.get('/api/movies', (req, res) => {
     console.log(`${req.method} request received for /api/movies.`);
 
-    res.json();
+    db.query('SELECT * FROM movies', (err, results) => {
+        if (err) {console.log(err);}
+
+        res.json(results);
+    })
 })
