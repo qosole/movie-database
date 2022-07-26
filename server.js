@@ -32,8 +32,8 @@ app.get('/api/movies', (req, res) => {
 });
 
 // Adding a movie to the db
-app.post('/api/movies', (req, res) => {
-    console.log(`${req.method} request received for /api/movies`);
+app.post('/api/add-movies', (req, res) => {
+    console.log(`${req.method} request received for /api/add-movie`);
 
     db.query(`INSERT INTO movies (movie_name) VALUES ("${req.body}")`, (err, results) => {
         if (err) {console.log(err);}
