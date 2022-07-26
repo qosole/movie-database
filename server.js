@@ -71,7 +71,8 @@ app.delete("/api/movie/:id", (req, res) => {
     db.query(`DELETE FROM movies WHERE movies.id = ${req.params.id}`, (err, results)=> {
         if (err) {console.log(err);}
 
-        console.log("Number of records deleted: " + result.affectedRows);
+        console.log("Number of records deleted: " + results.affectedRows);
+        res.json(results);
     });
 });
 
