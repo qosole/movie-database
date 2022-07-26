@@ -35,10 +35,10 @@ app.get('/api/movies', (req, res) => {
 app.post('/api/add-movie', (req, res) => {
     console.log(`${req.method} request received for /api/add-movie`);
 
-    db.query(`INSERT INTO movies (movie_name) VALUES ("${req.body}")`, (err, results) => {
+    db.query(`INSERT INTO movies (movie_name) VALUES ("${req.body.movie_name}")`, (err, results) => {
         if (err) {console.log(err);}
 
-        console.log(results);
+        res.json(results);
     });
 });
 
